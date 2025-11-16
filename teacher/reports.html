@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Attendance System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/report.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Attendance<span>Pro</span></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="teacher-dashboard.html"><span>📊</span> Dashboard</a></li>
+                <li><a href="attendance.html"><span>✅</span> Attendance</a></li>
+                <li><a href="#"><span>👥</span> My Classes</a></li>
+                <li><a href="#" class="active"><span>📄</span> Reports</a></li>
+                <li><a href="#"><span>📝</span> Anecdotal Records</a></li>
+                <li><a href="#"><span>🔔</span> Notifications</a></li>
+                <li><a href="#"><span>⚙️</span> Settings</a></li>
+            </ul>
+            <button class="logout-btn">Logout</button>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Reports</h1>
+                <p>View attendance reports and summaries.</p>
+            </div>
+
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>Section</label>
+                    <select id="sectionSelect">
+                        <option>All Sections</option>
+                        <option>Grade 10-A</option>
+                        <option>Grade 10-B</option>
+                        <option>Grade 11-A</option>
+                        <option>Grade 11-B</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Subject</label>
+                    <select id="subjectSelect">
+                        <option>All Subjects</option>
+                        <option>English</option>
+                        <option>Mathematics</option>
+                        <option>Science</option>
+                        <option>Filipino</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Month</label>
+                    <select id="monthSelect">
+                        <option>November 2024</option>
+                        <option>October 2024</option>
+                        <option>September 2024</option>
+                        <option>August 2024</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="summary-icon">🟢</div>
+                    <div class="summary-value">149</div>
+                    <div class="summary-label">Total Present</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">🔴</div>
+                    <div class="summary-value">13</div>
+                    <div class="summary-label">Total Absent</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">🟡</div>
+                    <div class="summary-value">0</div>
+                    <div class="summary-label">Total Late</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">📊</div>
+                    <div class="summary-value">91%</div>
+                    <div class="summary-label">Overall Attendance</div>
+                </div>
+            </div>
+
+            <div class="report-container">
+                <div class="report-header">
+                    <h2>Attendance Report</h2>
+                    <button class="btn-download">📥 Download Report</button>
+                </div>
+
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Student Name</th>
+                            <th>Student ID</th>
+                            <th>Section</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Late</th>
+                            <th>Attendance %</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Juan Dela Cruz</td>
+                            <td>#2024001</td>
+                            <td>Grade 10-A</td>
+                            <td>18</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Maria Santos</td>
+                            <td>#2024002</td>
+                            <td>Grade 10-A</td>
+                            <td>19</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Pedro Reyes</td>
+                            <td>#2024003</td>
+                            <td>Grade 10-B</td>
+                            <td>17</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Anna Garcia</td>
+                            <td>#2024004</td>
+                            <td>Grade 10-B</td>
+                            <td>20</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Roberto Bautista</td>
+                            <td>#2024005</td>
+                            <td>Grade 11-A</td>
+                            <td>16</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td>80%</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Sofia Martinez</td>
+                            <td>#2024006</td>
+                            <td>Grade 11-A</td>
+                            <td>19</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Carlos Lopez</td>
+                            <td>#2024007</td>
+                            <td>Grade 11-B</td>
+                            <td>18</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Elena Rodriguez</td>
+                            <td>#2024008</td>
+                            <td>Grade 11-B</td>
+                            <td>20</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Attendance System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/classes.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Attendance<span>Pro</span></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="teacher-dashboard.html"><span>📊</span> Dashboard</a></li>
+                <li><a href="attendance.html"><span>✅</span> Attendance</a></li>
+                <li><a href="#" class="active"><span>👥</span> My Classes</a></li>
+                <li><a href="reports.html"><span>📄</span> Reports</a></li>
+                <li><a href="#"><span>📝</span> Anecdotal Records</a></li>
+                <li><a href="#"><span>🔔</span> Notifications</a></li>
+                <li><a href="#"><span>⚙️</span> Settings</a></li>
+            </ul>
+            <button class="logout-btn">Logout</button>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>My Classes</h1>
+                <p>View and manage your assigned classes.</p>
+            </div>
+
+            <div class="classes-container">
+                <table class="classes-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Subject</th>
+                            <th>Section</th>
+                            <th>Schedule</th>
+                            <th>Room</th>
+                            <th>Students</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><span class="class-name">English</span></td>
+                            <td>Grade 10-A</td>
+                            <td>Mon, Wed, Fri • 8:00 AM</td>
+                            <td>Room 201</td>
+                            <td>30</td>
+                            <td><button class="btn-view">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><span class="class-name">Mathematics</span></td>
+                            <td>Grade 10-B</td>
+                            <td>Tue, Thu • 9:00 AM</td>
+                            <td>Room 305</td>
+                            <td>28</td>
+                            <td><button class="btn-view">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><span class="class-name">Science</span></td>
+                            <td>Grade 11-A</td>
+                            <td>Mon, Wed, Fri • 10:00 AM</td>
+                            <td>Lab 1</td>
+                            <td>32</td>
+                            <td><button class="btn-view">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><span class="class-name">Filipino</span></td>
+                            <td>Grade 11-B</td>
+                            <td>Tue, Thu • 1:00 PM</td>
+                            <td>Room 102</td>
+                            <td>29</td>
+                            <td><button class="btn-view">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><span class="class-name">History</span></td>
+                            <td>Grade 10-A</td>
+                            <td>Wed, Fri • 2:00 PM</td>
+                            <td>Room 205</td>
+                            <td>30</td>
+                            <td><button class="btn-view">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><span class="class-name">Physical Education</span></td>
+                            <td>Grade 11-A</td>
+                            <td>Mon, Wed • 3:00 PM</td>
+                            <td>Gymnasium</td>
+                            <td>32</td>
+                            <td><button class="btn-view">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

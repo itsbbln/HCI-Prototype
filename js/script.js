@@ -34,3 +34,34 @@ studentCheckboxes.forEach(checkbox => {
         selectAll.checked = allChecked;
     });
 });
+
+function openModal() {
+            const modal = document.getElementById('reportModal');
+            modal.classList.add('active');
+            console.log('Modal opened');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('reportModal');
+            modal.classList.remove('active');
+            console.log('Modal closed');
+        }
+
+        function submitReport() {
+            alert('Report submitted successfully!');
+            closeModal();
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('reportModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Test if button exists
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.querySelector('.btn-new');
+            console.log('Button found:', btn);
+        });
