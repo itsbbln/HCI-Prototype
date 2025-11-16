@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Attendance System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/td.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Smart<span>Discipline</span></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="active"><span>📊</span> Dashboard</a></li>
+                <li><a href="attendance.html"><span>✅</span> Attendance</a></li>
+                <li><a href="#"><span>👥</span> My Classes</a></li>
+                <li><a href="reports.html"><span>📄</span> Reports</a></li>
+                <li><a href="#"><span>📝</span> Anecdotal Records</a></li>
+                <li><a href="#"><span>🔔</span> Notifications</a></li>
+                <li><a href="#"><span>⚙️</span> Settings</a></li>
+            </ul>
+            <button class="logout-btn">Logout</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Welcome back, Teacher!</h1>
+                <div class="user-info">
+                    <div class="notification-icon">
+                        🔔
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-avatar">TN</div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 600;">Teacher Name</div>
+                            <div style="font-size: 12px; color: #6e6e6e;">Faculty</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Total Students</span>
+                        <span class="card-icon">👥</span>
+                    </div>
+                    <div class="card-value">156</div>
+                    <div class="card-footer">Across 4 sections</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Present Today</span>
+                        <span class="card-icon">🟢</span>
+                    </div>
+                    <div class="card-value">142</div>
+                    <div class="card-footer">91% attendance rate</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Absent Today</span>
+                        <span class="card-icon">🔴</span>
+                    </div>
+                    <div class="card-value">14</div>
+                    <div class="card-footer">9% absence rate</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Pending Reports</span>
+                        <span class="card-icon">⚠️</span>
+                    </div>
+                    <div class="card-value">3</div>
+                    <div class="card-footer">Awaiting review</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <h2 class="section-title">Quick Actions</h2>
+            <div class="quick-actions">
+                <a href="attendance.html" class="action-btn">
+                    <div class="action-btn-icon">✅</div>
+                    <div class="action-btn-text">Mark Attendance</div>
+                </a>
+                <a href="#" class="action-btn">
+                    <div class="action-btn-icon">📝</div>
+                    <div class="action-btn-text">Submit Report</div>
+                </a>
+                <a href="reports.html" class="action-btn">
+                    <div class="action-btn-icon">📊</div>
+                    <div class="action-btn-text">View Reports</div>
+                </a>
+                <a href="#" class="action-btn">
+                    <div class="action-btn-icon">👥</div>
+                    <div class="action-btn-text">Manage Classes</div>
+                </a>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h2 class="section-title">Recent Activity</h2>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <h4>Attendance marked for Grade 10-A</h4>
+                            <p>English subject - 28/30 present</p>
+                        </div>
+                        <span class="activity-time">2 hours ago</span>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <h4>Anecdotal report submitted</h4>
+                            <p>Student: Juan Dela Cruz - Late arrival</p>
+                        </div>
+                        <span class="activity-time">5 hours ago</span>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <h4>Monthly report generated</h4>
+                            <p>October 2024 attendance summary</p>
+                        </div>
+                        <span class="activity-time">1 day ago</span>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
