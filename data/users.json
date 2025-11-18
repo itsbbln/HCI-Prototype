@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Teacher Name",
+        "email": "teacher@school.edu",
+        "password": "teacher123",
+        "role": "teacher",
+        "created_at": "2025-11-18 17:39:52"
+    },
+    {
+        "id": 2,
+        "name": "Prefect Name",
+        "email": "prefect@school.edu",
+        "password": "prefect123",
+        "role": "prefect",
+        "created_at": "2025-11-18 17:39:52"
+    },
+    {
+        "id": 3,
+        "name": "Juan Dela Cruz",
+        "email": "student@school.edu",
+        "password": "student123",
+        "role": "student",
+        "created_at": "2025-11-18 17:39:52"
+    },
+    {
+        "id": 4,
+        "name": "Class Beadle",
+        "email": "beadle@school.edu",
+        "password": "beadle123",
+        "role": "beadle",
+        "created_at": "2025-11-18 17:39:52"
+    }
+]

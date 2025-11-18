@@ -293,3 +293,277 @@
                 grid-template-columns: 1fr;
             }
         }
+
+                /* Add these styles to the existing td.css file */
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #6e6e6e;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #2c55f0;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-submit:hover {
+            background: #173bd1;
+        }
+
+        /* Additional utility classes */
+        .sanction-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .sanction-minor {
+            background: #fed7aa;
+            color: #92400e;
+        }
+
+        .sanction-major {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .sanction-severe {
+            background: #dc2626;
+            color: white;
+        }
+
+        .attendance-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .present {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .absent {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .late {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .offense-count {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #2c55f0;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .attendance-calendar {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 25px;
+    margin-bottom: 20px;
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.month-navigation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+.calendar-day {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.day-header {
+    font-weight: 600;
+    background: #f8f9fa;
+}
+.present-day {
+    background: #d1fae5;
+    color: #065f46;
+}
+.absent-day {
+    background: #fee2e2;
+    color: #991b1b;
+}
+.future-day {
+    background: #f3f4f6;
+    color: #9ca3af;
+}
+.today {
+    border: 2px solid #2c55f0;
+}
+.attendance-rate {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.attendance-bar {
+    width: 60px;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.attendance-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+/* Sanction specific styles */
+.sanction-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sanction-minor {
+    background: #fed7aa;
+    color: #92400e;
+}
+
+.sanction-major {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.sanction-severe {
+    background: #dc2626;
+    color: white;
+}
+
+.offense-count {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: #2c55f0;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Additional table styles if needed */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Print styles for reports */
+@media print {
+    .sidebar, .top-bar, .btn-download {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+    }
+    
+    body {
+        background: white !important;
+    }
+}

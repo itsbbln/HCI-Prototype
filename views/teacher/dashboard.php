@@ -1,62 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Dashboard - Attendance System</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/td.css">
-</head>
-<body>
-    <div class="dashboard-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
-                <h2>Smart<span>Discipline</span></h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#" class="active"><span>📊</span> Dashboard</a></li>
-                <li><a href="teacher/attendance.html"><span>✅</span> Attendance</a></li>
-                <li><a href="#"><span>👥</span> My Classes</a></li>
-                <li><a href="teacher/reports.html"><span>📄</span> Reports</a></li>
-                <li><a href="#"><span>📝</span> Anecdotal Records</a></li>
-                <li><a href="#"><span>🔔</span> Notifications</a></li>
-                <li><a href="#"><span>⚙️</span> Settings</a></li>
-            </ul>
-            <button class="logout-btn">Logout</button>
-        </aside>
+<?php
+require_once '../../includes/header.php';
+checkRole(['teacher']);
+$user = $_SESSION['user'];
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Top Bar -->
+$db = new JsonDB();
+$teacherData = $auth->getUserData($user['id'], $user['role']);
+
+// Calculate stats
+$totalStudents = count($teacherData['students']);
+$teacherClasses = $teacherData['classes'];
+$totalClasses = count($teacherClasses);
+?>
             <div class="top-bar">
-                <h1>Welcome back, Teacher!</h1>
+                <h1>Welcome back, <?php echo $user['name']; ?>!</h1>
                 <div class="user-info">
                     <div class="notification-icon">
                         🔔
                         <span class="notification-badge">3</span>
                     </div>
                     <div class="user-profile">
-                        <div class="user-avatar">TN</div>
+                        <div class="user-avatar"><?php echo substr($user['name'], 0, 2); ?></div>
                         <div>
-                            <div style="font-size: 14px; font-weight: 600;">Teacher Name</div>
+                            <div style="font-size: 14px; font-weight: 600;"><?php echo $user['name']; ?></div>
                             <div style="font-size: 12px; color: #6e6e6e;">Faculty</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Summary Cards -->
             <div class="summary-cards">
                 <div class="card">
                     <div class="card-header">
                         <span class="card-title">Total Students</span>
                         <span class="card-icon">👥</span>
                     </div>
-                    <div class="card-value">156</div>
-                    <div class="card-footer">Across 4 sections</div>
+                    <div class="card-value"><?php echo $totalStudents; ?></div>
+                    <div class="card-footer">Across <?php echo $totalClasses; ?> classes</div>
                 </div>
 
                 <div class="card">
@@ -87,28 +66,26 @@
                 </div>
             </div>
 
-            <!-- Quick Actions -->
             <h2 class="section-title">Quick Actions</h2>
             <div class="quick-actions">
-                <a href="attendance.html" class="action-btn">
+                <a href="attendance.php" class="action-btn">
                     <div class="action-btn-icon">✅</div>
                     <div class="action-btn-text">Mark Attendance</div>
                 </a>
-                <a href="#" class="action-btn">
+                <a href="anecdotal.php" class="action-btn">
                     <div class="action-btn-icon">📝</div>
                     <div class="action-btn-text">Submit Report</div>
                 </a>
-                <a href="reports.html" class="action-btn">
+                <a href="reports.php" class="action-btn">
                     <div class="action-btn-icon">📊</div>
                     <div class="action-btn-text">View Reports</div>
                 </a>
-                <a href="#" class="action-btn">
+                <a href="classes.php" class="action-btn">
                     <div class="action-btn-icon">👥</div>
                     <div class="action-btn-text">Manage Classes</div>
                 </a>
             </div>
 
-            <!-- Recent Activity -->
             <div class="recent-activity">
                 <h2 class="section-title">Recent Activity</h2>
                 <ul class="activity-list">
@@ -135,7 +112,5 @@
                     </li>
                 </ul>
             </div>
-        </main>
-    </div>
-</body>
-</html>
+
+<?php require_once '../../includes/footer.php'; ?>

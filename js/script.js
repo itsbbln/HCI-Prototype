@@ -1,67 +1,74 @@
-function login() {
-            const role = document.getElementById('role').value;
-
-            // Redirect based on role
-            switch(role) {
-                case "teacher":
-                    window.location.href = "teacher-dashboard.html";
-                    break;
-                case "prefect":
-                    window.location.href = "prefect-dashboard.html";
-                    break;
-                case "student":
-                    window.location.href = "student-dashboard.html";
-                    break;
-                case "beadle":
-                    window.location.href = "beadle-dashboard.html";
-                    break;
-            }
-        }
-
-document.getElementById('selectAll').addEventListener('change', function() {
-const checkboxes = document.querySelectorAll('.student-checkbox');
-    checkboxes.forEach(checkbox => {
-        checkbox.checked = this.checked;
-    });
+// Basic JavaScript for frontend interactions
+document.addEventListener('DOMContentLoaded', function() {
+    // Modal functionality
+    setupModals();
+    
+    // Form interactions
+    setupForms();
 });
 
-// Individual checkbox management
-const studentCheckboxes = document.querySelectorAll('.student-checkbox');
-studentCheckboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
-        const selectAll = document.getElementById('selectAll');
-        const allChecked = Array.from(studentCheckboxes).every(cb => cb.checked);
-        selectAll.checked = allChecked;
+function setupModals() {
+    // Open modal
+    window.openModal = function(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.style.display = 'flex';
+    };
+    
+    // Close modal
+    window.closeModal = function(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.style.display = 'none';
+    };
+    
+    // Close modal when clicking outside
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
     });
-});
+}
 
-function openModal() {
-            const modal = document.getElementById('reportModal');
-            modal.classList.add('active');
-            console.log('Modal opened');
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('reportModal');
-            modal.classList.remove('active');
-            console.log('Modal closed');
-        }
-
-        function submitReport() {
-            alert('Report submitted successfully!');
-            closeModal();
-        }
-
-        // Close modal when clicking outside
-        document.addEventListener('click', function(event) {
-            const modal = document.getElementById('reportModal');
-            if (event.target === modal) {
-                closeModal();
-            }
+function setupForms() {
+    // Add any frontend form validation here
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            // Frontend validation can go here
+            console.log('Form submitted');
         });
+    });
+}
 
-        // Test if button exists
-        document.addEventListener('DOMContentLoaded', function() {
-            const btn = document.querySelector('.btn-new');
-            console.log('Button found:', btn);
+// Attendance checkboxes
+function setupAttendanceCheckboxes() {
+    const selectAll = document.getElementById('selectAll');
+    if (selectAll) {
+        selectAll.addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.student-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
         });
+    }
+}
+
+function goToDashboard() {
+    const user = getCurrentUser();
+    if (!user) return window.location.href = '/HCI-Prototype/login.html';
+
+    const dashboards = {
+        teacher: '/HCI-Prototype/teacher/teacher-dashboard.html',
+        prefect: '/HCI-Prototype/prefect/prefect-dashboard.html',
+        student: '/HCI-Prototype/student/student-dashboard.html',
+        beadle: '/HCI-Prototype/beadle/beadle-dashboard.html'
+    };
+    window.location.href = dashboards[user.role];
+}
+
+function navigateTo(page) {
+    const user = getCurrentUser();
+    if (!user) return logout();
+
+    const base = '/HCI-Prototype/' + user.role + '/';
+    window.location.href = base + page;
+}
