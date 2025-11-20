@@ -1,6 +1,6 @@
 <?php
 require_once '../../includes/header.php';
-checkRole(['student']);
+checkRole(['prefect']);
 $user = $_SESSION['user'];
 
 $db = new JsonDB();

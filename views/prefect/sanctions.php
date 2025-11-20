@@ -41,14 +41,55 @@ if ($_POST) {
                 $student['offenses'] = ($student['offenses'] ?? 0) + 1;
                 $db->update('students', $studentId, ['offenses' => $student['offenses']]);
             }
+
+            // Create notification for the student (if they have a user account)
+        if ($student && !empty($student['email'])) {
+            $studentUser = $db->getByField('users', 'email', $student['email']);
+            if ($studentUser) {
+                $db->insert('notifications', [
+                    'user_id' => $studentUser['id'],
+                    'title' => 'New sanction issued',
+                    'message' => sprintf(
+                        'You received a %s sanction for "%s" on %s.',
+                        $sanctionLevel,
+                        $violationType,
+                        $dateIssued
+                    ),
+                    'type' => 'sanction',
+                    'is_read' => false
+                ]);
+            }
+            }
         } else {
             $error = "Failed to add sanction. Please try again.";
         }
-    } elseif (isset($_POST['resolve_sanction'])) {
+        } elseif (isset($_POST['resolve_sanction'])) {
         // Resolve sanction
-        $sanctionId = $_POST['sanction_id'];
+        $sanctionId = (int) $_POST['sanction_id'];
+
         if ($db->update('sanctions', $sanctionId, ['status' => 'completed'])) {
             $success = "Sanction marked as resolved!";
+
+            // Load sanction to know which student
+            $sanction = $db->getById('sanctions', $sanctionId);
+            if ($sanction) {
+                $student = $db->getById('students', $sanction['student_id']);
+                if ($student && !empty($student['email'])) {
+                    $studentUser = $db->getByField('users', 'email', $student['email']);
+                    if ($studentUser) {
+                        $db->insert('notifications', [
+                            'user_id' => $studentUser['id'],
+                            'title' => 'Sanction updated',
+                            'message' => sprintf(
+                                'Your sanction for "%s" has been marked as completed.',
+                                $sanction['violation_type']
+                            ),
+                            'type' => 'sanction',
+                            'is_read' => false
+                        ]);
+                    }
+                }
+            }
         } else {
             $error = "Failed to resolve sanction. Please try again.";
         }

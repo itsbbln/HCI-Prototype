@@ -77,7 +77,7 @@ class JsonDB {
     
     // Initialize demo data if files don't exist
     public function initializeDemoData() {
-        $tables = ['users', 'students', 'classes', 'attendance', 'sanctions', 'anecdotal'];
+        $tables = ['users', 'students', 'classes', 'attendance', 'sanctions', 'anecdotal', 'notifications'];
         
         foreach ($tables as $table) {
             if (!file_exists($this->getFilePath($table))) {
@@ -253,9 +253,50 @@ class JsonDB {
                         'created_at' => date('Y-m-d H:i:s')
                     ]
                 ];
+            case 'notifications':
+                return [
+                    [
+                        'id' => 1,
+                        'user_id' => 3, // demo student user
+                        'title' => 'Welcome to the portal',
+                        'message' => 'This is a sample notification. Real alerts will appear here when your records are updated.',
+                        'type' => 'system',
+                        'is_read' => false,
+                        'created_at' => date('Y-m-d H:i:s', strtotime('-1 day'))
+                    ],
+                    [
+                        'id' => 2,
+                        'user_id' => 3, // same student
+                        'title' => 'Sanction status update',
+                        'message' => 'Your recent sanction has been marked as completed.',
+                        'type' => 'sanction',
+                        'is_read' => true,
+                        'created_at' => date('Y-m-d H:i:s', strtotime('-2 hours'))
+                    ],
+                    [
+                        'id' => 3,
+                        'user_id' => 1, // teacher
+                        'title' => 'Attendance reminder',
+                        'message' => 'Remember to finalize todays attendance before the end of the day.',
+                        'type' => 'attendance',
+                        'is_read' => false,
+                        'created_at' => date('Y-m-d H:i:s', strtotime('-3 hours'))
+                    ],
+                    [
+                        'id' => 4,
+                        'user_id' => 2, // prefect
+                        'title' => 'Pending sanctions to review',
+                        'message' => 'There are sanctions that still need your review in the system.',
+                        'type' => 'sanction',
+                        'is_read' => false,
+                        'created_at' => date('Y-m-d H:i:s', strtotime('-5 hours'))
+                    ]
+                ];
+    
                 
             default:
                 return [];
+
         }
     }
 }
