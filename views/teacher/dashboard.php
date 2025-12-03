@@ -12,21 +12,50 @@ $teacherClasses = $teacherData['classes'];
 $totalClasses = count($teacherClasses);
 ?>
             <div class="top-bar">
-                <h1>Welcome back, <?php echo $user['name']; ?>!</h1>
-                <div class="user-info">
-                    <div class="notification-icon">
-                        🔔
-                        <span class="notification-badge">3</span>
-                    </div>
-                    <div class="user-profile">
+            <h1>Welcome, <?php echo $user['name']; ?>!</h1>
+            <div class="user-info">
+                <!-- <div class="notification-icon">
+                    🔔
+                    <span class="notification-badge">2</span>
+                    <a href="notification.php" class="notification-icon"></a>>
+                </div> -->
+                <a href="notification.php">
+                <div class="notification-icon">🔔</div>
+                <div class="notification-badge">2</div>
+                </a>>
+                <div class="user-profile-dropdown">
+                    <div class="profile-dropdown-toggle">
                         <div class="user-avatar"><?php echo substr($user['name'], 0, 2); ?></div>
                         <div>
                             <div style="font-size: 14px; font-weight: 600;"><?php echo $user['name']; ?></div>
-                            <div style="font-size: 12px; color: #6e6e6e;">Faculty</div>
+                            <div style="font-size: 12px; color: #6e6e6e;">
+                                <?php echo ucfirst($user['role']); ?>
+                            </div>
                         </div>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    <div class="profile-dropdown-menu">
+                        <div class="profile-dropdown-header">
+                            <div class="user-name"><?php echo $user['name']; ?></div>
+                            <div class="user-email"><?php echo $user['email']; ?></div>
+                        </div>
+                        <a href="profile.php" class="profile-dropdown-item">
+                            <span class="icon">👤</span>
+                            <span>My Profile</span>
+                        </a>
+                        <a href="settings.php" class="profile-dropdown-item">
+                            <span class="icon">⚙️</span>
+                            <span>Settings</span>
+                        </a>
+                        <div class="profile-dropdown-divider"></div>
+                        <a href="<?php echo PathHelper::getIncludesPath(); ?>logout.php" class="profile-dropdown-item">
+                            <span class="icon">🚪</span>
+                            <span>Logout</span>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
 
             <div class="summary-cards">
                 <div class="card">

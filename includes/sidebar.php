@@ -13,14 +13,16 @@ $navItems = [
         ['icon' => '📄', 'name' => 'Reports', 'link' => 'reports.php'],
         ['icon' => '📝', 'name' => 'Anecdotal Records', 'link' => 'anecdotal.php'],
         ['icon' => '🔔', 'name' => 'Notifications', 'link' => 'notification.php'],
-        ['icon' => '⚙️', 'name' => 'Settings', 'link' => '#']
+        ['icon' => '👤', 'name' => 'Profile', 'link' => 'profile.php'],
+        ['icon' => '⚙️', 'name' => 'Settings', 'link' => 'settings.php']
     ],
     'student' => [
         ['icon' => '📊', 'name' => 'Dashboard', 'link' => 'dashboard.php'],
         ['icon' => '✅', 'name' => 'My Attendance', 'link' => 'attendance.php'],
         ['icon' => '⚖️', 'name' => 'My Sanctions', 'link' => 'sanctions.php'],
         ['icon' => '🔔', 'name' => 'Notifications', 'link' => 'notification.php'],
-        ['icon' => '👤', 'name' => 'Profile', 'link' => '#']
+        ['icon' => '👤', 'name' => 'Profile', 'link' => 'profile.php'],
+        ['icon' => '⚙️', 'name' => 'Settings', 'link' => 'settings.php']
     ],
     'prefect' => [
         ['icon' => '📊', 'name' => 'Dashboard', 'link' => 'dashboard.php'],
@@ -29,14 +31,16 @@ $navItems = [
         ['icon' => '👥', 'name' => 'Student Profiles', 'link' => 'student-profiles.php'],
         ['icon' => '📄', 'name' => 'Reports', 'link' => '#'],
         ['icon' => '🔔', 'name' => 'Notifications', 'link' => 'notification.php'],
-        ['icon' => '⚙️', 'name' => 'Settings', 'link' => '#']
+        ['icon' => '👤', 'name' => 'Profile', 'link' => 'profile.php'],
+        ['icon' => '⚙️', 'name' => 'Settings', 'link' => 'settings.php']
     ],
     'beadle' => [
         ['icon' => '📊', 'name' => 'Dashboard', 'link' => 'dashboard.php'],
         ['icon' => '✅', 'name' => 'Mark Attendance', 'link' => 'attendance.php'],
         ['icon' => '📋', 'name' => 'Attendance History', 'link' => 'attendance-history.php'],
         ['icon' => '🔔', 'name' => 'Notifications', 'link' => 'notification.php'],
-        ['icon' => '⚙️', 'name' => 'Settings', 'link' => '#']
+        ['icon' => '👤', 'name' => 'Profile', 'link' => 'profile.php'],
+        ['icon' => '⚙️', 'name' => 'Settings', 'link' => 'settings.php']
     ]
 ];
 ?>

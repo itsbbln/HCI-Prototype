@@ -27,11 +27,35 @@ $attendanceRate = count($attendanceRecords) > 0 ? round(($presentCount / count($
                         🔔
                         <span class="notification-badge">2</span>
                     </div>
-                    <div class="user-profile">
-                        <div class="user-avatar"><?php echo substr($user['name'], 0, 2); ?></div>
-                        <div>
-                            <div style="font-size: 14px; font-weight: 600;"><?php echo $user['name']; ?></div>
-                            <div style="font-size: 12px; color: #6e6e6e;"><?php echo $student['grade'] ?? 'Student'; ?></div>
+                    <div class="user-profile-dropdown">
+                        <div class="profile-dropdown-toggle">
+                            <div class="user-avatar"><?php echo substr($user['name'], 0, 2); ?></div>
+                            <div>
+                                <div style="font-size: 14px; font-weight: 600;"><?php echo $user['name']; ?></div>
+                                <div style="font-size: 12px; color: #6e6e6e;">
+                                    <?php echo ucfirst($user['role']); ?>
+                                </div>
+                            </div>
+                            <span class="dropdown-arrow">▼</span>
+                        </div>
+                        <div class="profile-dropdown-menu">
+                            <div class="profile-dropdown-header">
+                                <div class="user-name"><?php echo $user['name']; ?></div>
+                                <div class="user-email"><?php echo $user['email']; ?></div>
+                            </div>
+                            <a href="profile.php" class="profile-dropdown-item">
+                                <span class="icon">👤</span>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="settings.php" class="profile-dropdown-item">
+                                <span class="icon">⚙️</span>
+                                <span>Settings</span>
+                            </a>
+                            <div class="profile-dropdown-divider"></div>
+                            <a href="<?php echo PathHelper::getIncludesPath(); ?>logout.php" class="profile-dropdown-item">
+                                <span class="icon">🚪</span>
+                                <span>Logout</span>
+                            </a>
                         </div>
                     </div>
                 </div>
