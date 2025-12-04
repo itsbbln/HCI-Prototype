@@ -17,27 +17,49 @@ class Auth {
             return true;
         }
         return false;
+        // After $user = $this->db->getByField('users', 'email', $email);
+        if ($user && $user['role'] === 'student') {
+            $studentRecord = $this->db->getByField('students', 'email', $user['email']);
+            if (!$studentRecord) {
+                // Auto-create missing student profile
+                $this->db->insert('students', [
+                    'student_id' => '2025' . str_pad($user['id'], 4, '0', STR_PAD_LEFT),
+                    'name' => $user['name'],
+                    'email' => $user['email'],
+                    'grade' => 'Not Assigned',
+                    'offenses' => 0
+                ]);
+            }
+        }
     }
     
     public function register($name, $email, $password, $role) {
-        // Check if email exists
         $existingUser = $this->db->getByField('users', 'email', $email);
         if ($existingUser) {
             return "Email already exists";
         }
-        
-        // Insert new user
+
         $newUser = [
             'name' => $name,
             'email' => $email,
             'password' => $password,
             'role' => $role
         ];
-        
-        if ($this->db->insert('users', $newUser)) {
-            return true;
+
+        $userId = $this->db->insert('users', $newUser);
+
+        // AUTO-CREATE STUDENT RECORD IF ROLE IS STUDENT
+        if ($role === 'student' && $userId) {
+            $this->db->insert('students', [
+                'name' => $name,
+                'email' => $email,
+                'student_id' => '2025' . str_pad($userId, 4, '0', STR_PAD_LEFT), // e.g., 20250006
+                'grade' => 'Not Assigned',
+                'offenses' => 0
+            ]);
         }
-        return "Registration failed";
+
+        return $userId ? true : "Registration failed";
     }
     
     public function logout() {

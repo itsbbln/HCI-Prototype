@@ -41,6 +41,15 @@ $navItems = [
         ['icon' => '🔔', 'name' => 'Notifications', 'link' => 'notification.php'],
         ['icon' => '👤', 'name' => 'Profile', 'link' => 'profile.php'],
         ['icon' => '⚙️', 'name' => 'Settings', 'link' => 'settings.php']
+    ],
+    'admin' => [
+    ['icon' => '🏠', 'name' => 'Dashboard', 'link' => 'dashboard.php'],
+    ['icon' => '👥', 'name' => 'Classes', 'link' => 'classes.php'],
+    ['icon' => '👥', 'name' => 'Manage Prefects', 'link' => 'prefects.php'],
+    ['icon' => '📋', 'name' => 'All Users', 'link' => 'users.php'],
+    ['icon' => '🔔', 'name' => 'Notifications', 'link' => 'notification.php'],
+    ['icon' => '👤', 'name' => 'Profile', 'link' => 'profile.php'],
+    ['icon' => '⚙️', 'name' => 'Settings', 'link' => 'settings.php']
     ]
 ];
 ?>

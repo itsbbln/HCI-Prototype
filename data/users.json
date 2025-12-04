@@ -30,5 +30,38 @@
         "password": "beadle123",
         "role": "beadle",
         "created_at": "2025-11-18 17:39:52"
+    },
+    {
+        "name": "Shauntie",
+        "email": "shauntie@email.com",
+        "password": "123",
+        "role": "teacher",
+        "id": 5,
+        "created_at": "2025-12-04 17:48:04",
+        "updated_at": "2025-12-04 17:48:26"
+    },
+    {
+        "id": 6,
+        "name": "Administrator",
+        "email": "admin@school.edu",
+        "password": "admin123",
+        "role": "admin",
+        "created_at": "2025-12-05 10:00:00"
+    },
+    {
+        "name": "Baby Lyn A. Oinal",
+        "email": "babylyn@email.com",
+        "password": "111111",
+        "role": "prefect",
+        "id": 7,
+        "created_at": "2025-12-04 18:12:36"
+    },
+    {
+        "name": "Earl Angelo Salapang",
+        "email": "earl@email.com",
+        "password": "123",
+        "role": "student",
+        "id": 8,
+        "created_at": "2025-12-04 18:46:36"
     }
 ]

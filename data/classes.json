@@ -5,12 +5,14 @@
         "section": "Grade 10-A",
         "schedule": "Mon, Wed, Fri \u2022 8:00 AM",
         "room": "Room 201",
-        "teacher_id": 1,
+        "teacher_id": null,
         "students": [
             1,
-            2
+            2,
+            "5"
         ],
-        "created_at": "2025-11-18 17:39:52"
+        "created_at": "2025-11-18 17:39:52",
+        "updated_at": "2025-12-04 18:56:33"
     },
     {
         "id": 2,
@@ -24,5 +26,18 @@
             4
         ],
         "created_at": "2025-11-18 17:39:52"
+    },
+    {
+        "name": "P.E",
+        "section": "Grade 9 - A",
+        "schedule": "Thur - 7:00 AM",
+        "room": "Function Hall",
+        "teacher_id": 5,
+        "students": [
+            "2"
+        ],
+        "id": 3,
+        "created_at": "2025-12-04 18:56:26",
+        "updated_at": "2025-12-04 18:57:37"
     }
 ]
