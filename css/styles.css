@@ -556,6 +556,11 @@ body {
     grid-auto-rows: min-content;
     gap: 12px 20px;
     align-items: start;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;  
 }
 
 .top-bar.page-header > h1 {
