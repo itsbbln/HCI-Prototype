@@ -115,14 +115,7 @@ class JsonDB {
                         'role' => 'student',
                         'created_at' => date('Y-m-d H:i:s')
                     ],
-                    [
-                        'id' => 4,
-                        'name' => 'Class Beadle',
-                        'email' => 'beadle@school.edu',
-                        'password' => 'beadle123',
-                        'role' => 'beadle',
-                        'created_at' => date('Y-m-d H:i:s')
-                    ]
+                    // Beadle demo user removed
                 ];
                 
             case 'students':
@@ -195,7 +188,7 @@ class JsonDB {
                         'id' => 1,
                         'class_id' => 1,
                         'date' => date('Y-m-d'),
-                        'created_by' => 4,
+                        'created_by' => 1,
                         'present_students' => [1, 2],
                         'status' => 'approved',
                         'created_at' => date('Y-m-d H:i:s')

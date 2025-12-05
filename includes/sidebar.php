@@ -29,19 +29,11 @@ $navItems = [
         ['icon' => '⚖️', 'name' => 'Sanction Management', 'link' => 'sanctions.php'],
         ['icon' => '📝', 'name' => 'Anecdotal Records', 'link' => 'anecdotal.php'],
         ['icon' => '👥', 'name' => 'Student Profiles', 'link' => 'student-profiles.php'],
-        ['icon' => '📄', 'name' => 'Reports', 'link' => '#'],
         ['icon' => '🔔', 'name' => 'Notifications', 'link' => 'notification.php'],
         ['icon' => '👤', 'name' => 'Profile', 'link' => 'profile.php'],
         ['icon' => '⚙️', 'name' => 'Settings', 'link' => 'settings.php']
     ],
-    'beadle' => [
-        ['icon' => '📊', 'name' => 'Dashboard', 'link' => 'dashboard.php'],
-        ['icon' => '✅', 'name' => 'Mark Attendance', 'link' => 'attendance.php'],
-        ['icon' => '📋', 'name' => 'Attendance History', 'link' => 'attendance-history.php'],
-        ['icon' => '🔔', 'name' => 'Notifications', 'link' => 'notification.php'],
-        ['icon' => '👤', 'name' => 'Profile', 'link' => 'profile.php'],
-        ['icon' => '⚙️', 'name' => 'Settings', 'link' => 'settings.php']
-    ],
+    // 'beadle' role removed
     'admin' => [
         ['icon' => '📊', 'name' => 'Dashboard', 'link' => 'dashboard.php'],
         ['icon' => '✅', 'name' => 'Classes', 'link' => 'classes.php'],
@@ -187,8 +179,8 @@ $navItems = [
     }
 
     .sidebar-header {
-        padding: 30px 20px 20px 70px;
-        border-bottom: 1px solid #334155;
+        padding: 20px;
+        text-align: center;
     }
     
     /* Adjust button position when drawer is open */
@@ -209,7 +201,7 @@ $navItems = [
     }
 
     .logo-text {
-        color: white;
+        color: #2c55f0;
     }
 
     .logo-accent {

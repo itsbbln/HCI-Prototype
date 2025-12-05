@@ -28,31 +28,15 @@ if ($_POST) {
         $error = "Failed to submit attendance. Please try again.";
     }
 }
+<?php
+// Beadle role removed. Redirect to unauthorized.
+header('Location: ../../unauthorized.php');
+exit;
+<?php
+// Beadle role removed. Redirect to unauthorized.
+header('Location: ../../unauthorized.php');
+exit;
 ?>
-            <div class="top-bar">
-                <h1>Mark Attendance</h1>
-                <div class="user-info">
-                    <div class="user-profile">
-                        <div class="user-avatar"><?php echo substr($user['name'], 0, 2); ?></div>
-                        <div>
-                            <div style="font-size: 14px; font-weight: 600;"><?php echo $user['name']; ?></div>
-                            <div style="font-size: 12px; color: #6e6e6e;">Grade 10-A</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <?php if (isset($success)): ?>
-                <div style="background: #d1fae5; color: #065f46; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                    <?php echo $success; ?>
-                </div>
-            <?php endif; ?>
-            
-            <?php if (isset($error)): ?>
-                <div style="background: #fee2e2; color: #991b1b; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                    <?php echo $error; ?>
-                </div>
-            <?php endif; ?>
 
             <?php if ($todayClass): ?>
             <div class="attendance-sheet-container">

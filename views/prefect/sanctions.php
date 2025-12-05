@@ -308,7 +308,8 @@ if ($studentId) {
     <script src="../../js/script.js"></script>
     <script>
         function viewSanctionDetails(sanctionId) {
-            alert('Viewing sanction details for ID: ' + sanctionId + ' - This feature is under development.');
+            // Navigate to the sanction details page for prefects
+            window.location.href = 'sanction-details.php?id=' + encodeURIComponent(sanctionId);
         }
 
         function filterSanctions() {

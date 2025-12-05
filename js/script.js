@@ -59,8 +59,7 @@ function goToDashboard() {
     const dashboards = {
         teacher: '/HCI-Prototype/teacher/teacher-dashboard.html',
         prefect: '/HCI-Prototype/prefect/prefect-dashboard.html',
-        student: '/HCI-Prototype/student/student-dashboard.html',
-        beadle: '/HCI-Prototype/beadle/beadle-dashboard.html'
+        student: '/HCI-Prototype/student/student-dashboard.html'
     };
     window.location.href = dashboards[user.role];
 }

@@ -1,34 +1,12 @@
 <?php
-require_once '../../includes/header.php';
-checkRole(['beadle']);
-$user = $_SESSION['user'];
-
-$db = new JsonDB();
-$auth = new Auth();
-$beadleData = $auth->getUserData($user['id'], $user['role']);
-
-$attendanceHistory = $beadleData['attendance'];
-
-// Calculate stats
-$totalSubmissions = count($attendanceHistory);
-$approvedCount = count(array_filter($attendanceHistory, function($item) {
-    return $item['status'] === 'approved';
-}));
-$pendingCount = count(array_filter($attendanceHistory, function($item) {
-    return $item['status'] === 'pending';
-}));
-
-// Calculate average attendance
-$totalPresent = 0;
-$totalPossible = 0;
-
-foreach ($attendanceHistory as $record) {
-    $class = $db->getById('classes', $record['class_id']);
-    $totalPresent += count($record['present_students']);
-    $totalPossible += count($class['students']);
-}
-
-$averageAttendance = $totalPossible > 0 ? round(($totalPresent / $totalPossible) * 100) : 0;
+// Beadle role removed. Redirect to unauthorized.
+header('Location: ../../unauthorized.php');
+exit;
+?>
+<?php
+// Beadle role removed. Redirect to unauthorized.
+header('Location: ../../unauthorized.php');
+exit;
 ?>
             <div class="top-bar">
                 <h1>Attendance History</h1>
@@ -116,16 +94,11 @@ $averageAttendance = $totalPossible > 0 ? round(($totalPresent / $totalPossible)
                                    <span class="status-badge <?php echo $statusClass; ?>">
                                       <?php echo ucfirst($record['status']); ?>
                                    </span>
-                                </p>
-                            </div>
-                            <span class="activity-time">
-                                <?php echo $record['status'] === 'approved' ? '✓ Approved' : 
-                                       ($record['status'] === 'rejected' ? '✗ Rejected' : '⏳ Pending'); ?>
-                            </span>
-                        </li>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </ul>
+                                <?php
+                                // Beadle role removed. Redirect to unauthorized.
+                                header('Location: ../../unauthorized.php');
+                                exit;
+                                ?>
             </div>
         </main>
     </div>

@@ -334,6 +334,13 @@ body {
     gap: 20px;
 }
 
+.notification-icon-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .notification-icon {
     position: relative;
     font-size: 1.2rem;

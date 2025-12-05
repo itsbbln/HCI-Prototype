@@ -84,7 +84,6 @@ if ($_POST) {
                     <option value="">Select Role</option>
                     <option value="teacher" <?php echo ($_POST['role'] ?? '') == 'teacher' ? 'selected' : ''; ?>>Teacher</option>
                     <option value="student" <?php echo ($_POST['role'] ?? '') == 'student' ? 'selected' : ''; ?>>Student</option>
-                    <option value="beadle" <?php echo ($_POST['role'] ?? '') == 'beadle' ? 'selected' : ''; ?>>Class Beadle</option>
                 </select>
                 <small style="color: #666; font-size: 12px; display: block; margin-top: 5px;">
                     Note: Prefect accounts must be created by administrator

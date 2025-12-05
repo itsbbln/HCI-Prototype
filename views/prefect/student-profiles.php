@@ -114,7 +114,8 @@ foreach ($students as $student) {
     <script src="../../js/script.js"></script>
     <script>
         function viewStudentProfile(studentId) {
-            alert('View student profile for ID: ' + studentId + ' - This feature is under development.');
+            // Navigate to the prefect view-student page
+            window.location.href = 'view-student.php?student_id=' + encodeURIComponent(studentId);
         }
 
         // Search functionality

@@ -32,7 +32,7 @@ if ($_POST && isset($_POST['create_user'])) {
 
 <div class="top-bar page-header">
     <h1>All Users</h1>
-    <p>Manage teachers, prefects, students, and beadles</p>
+    <p>Manage teachers, prefects, and students</p>
 </div>
 
 <?php if ($success): ?><div class="alert success"><?php echo $success; ?></div><?php endif; ?>
@@ -95,7 +95,7 @@ if ($_POST && isset($_POST['create_user'])) {
                 <select name="role" required>
                     <option value="teacher">Teacher</option>
                     <option value="prefect">Prefect</option>
-                    <option value="beadle">Class Beadle</option>
+                    <!-- Beadle role removed -->
                     <option value="student">Student</option>
                 </select>
             </div>

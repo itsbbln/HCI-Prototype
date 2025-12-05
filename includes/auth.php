@@ -91,14 +91,6 @@ class Auth {
                     })
                 ];
                 
-            case 'beadle':
-                return [
-                    'classes' => $this->db->getAll('classes'),
-                    'attendance' => array_filter($this->db->getAll('attendance'), function($record) use ($userId) {
-                        return $record['created_by'] == $userId;
-                    })
-                ];
-                
             case 'prefect':
                 return [
                     'students' => $this->db->getAll('students'),
