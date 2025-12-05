@@ -57,7 +57,7 @@ $unreadCount = count(array_filter($notifications, function($n) {
 }));
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <div>
         <h1>Notifications</h1>
         <p>Alerts related to your attendance, sanctions, and system updates.</p>
@@ -85,57 +85,65 @@ $unreadCount = count(array_filter($notifications, function($n) {
     </div>
 <?php endif; ?>
 
-<div class="card">
-    <div class="card-header">
-        <h2>Your Notifications</h2>
-        <p style="margin:0;font-size:0.9rem;color:#6b7280;">
-            Showing <?php echo count($notifications); ?> notification(s).
-        </p>
-    </div>
-
-    <?php if (empty($notifications)): ?>
-        <div style="padding:20px;">
-            <p style="color:#6b7280;">No notifications yet.</p>
-        </div>
-    <?php else: ?>
-        <ul class="notification-list" style="list-style:none;margin:0;padding:0;">
-            <?php foreach ($notifications as $n): 
-                $isRead = !empty($n['is_read']);
-                $type = isset($n['type']) ? $n['type'] : 'system';
-            ?>
-                <li class="notification-card" style="border-bottom:1px solid #e5e7eb;padding:14px 16px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;<?php echo $isRead ? 'background:#ffffff;' : 'background:#f9fafb;'; ?>">
-                    <div>
-                        <div style="display:flex;align-items:center;gap:8px;">
-                            <strong><?php echo htmlspecialchars($n['title']); ?></strong>
-                            <span style="font-size:0.75rem;padding:2px 8px;border-radius:999px;
-                                         background:#e5e7eb;color:#374151;text-transform:capitalize;">
-                                <?php echo htmlspecialchars($type); ?>
-                            </span>
-                            <?php if (!$isRead): ?>
-                                <span style="font-size:0.7rem;color:#10b981;">● Unread</span>
-                            <?php endif; ?>
-                        </div>
-                        <p style="margin:6px 0 4px 0;color:#4b5563;font-size:0.9rem;">
-                            <?php echo nl2br(htmlspecialchars($n['message'])); ?>
-                        </p>
-                        <small style="color:#9ca3af;">
-                            <?php echo isset($n['created_at']) ? date('M d, Y h:i A', strtotime($n['created_at'])) : ''; ?>
-                        </small>
-                    </div>
-
-                    <?php if (!$isRead): ?>
-                        <form method="POST" style="margin:0;">
-                            <input type="hidden" name="notification_id" value="<?php echo $n['id']; ?>">
-                            <input type="hidden" name="mark_read" value="1">
-                            <button type="submit" class="btn-view" style="white-space:nowrap;">
-                                Mark as read
-                            </button>
-                        </form>
-                    <?php endif; ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
+<div class="notification-container">
+    <table class="notification-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Message</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (empty($notifications)): ?>
+                <tr>
+                    <td colspan="7" style="text-align: center; padding: 40px; color: #6e6e6e;">
+                        No notifications yet.
+                    </td>
+                </tr>
+            <?php else: ?>
+                <?php foreach ($notifications as $index => $n): 
+                    $isRead = !empty($n['is_read']);
+                    $type = isset($n['type']) ? $n['type'] : 'system';
+                    $statusClass = $isRead ? 'status-read' : 'status-unread';
+                ?>
+                <tr class="notification-row <?php echo $statusClass; ?>">
+                    <td><?php echo $index + 1; ?></td>
+                    <td><?php echo htmlspecialchars($n['title']); ?></td>
+                    <td><?php echo nl2br(htmlspecialchars($n['message'])); ?></td>
+                    <td>
+                        <span class="notification-type-badge">
+                            <?php echo htmlspecialchars($type); ?>
+                        </span>
+                    </td>
+                    <td><?php echo isset($n['created_at']) ? date('M d, Y', strtotime($n['created_at'])) : ''; ?></td>
+                    <td>
+                        <span class="status-badge <?php echo $statusClass; ?>">
+                            <?php echo $isRead ? 'Read' : 'Unread'; ?>
+                        </span>
+                    </td>
+                    <td>
+                        <?php if (!$isRead): ?>
+                            <form method="POST" style="display:inline;">
+                                <input type="hidden" name="notification_id" value="<?php echo $n['id']; ?>">
+                                <input type="hidden" name="mark_read" value="1">
+                                <button type="submit" class="btn-view">
+                                    Mark as read
+                                </button>
+                            </form>
+                        <?php else: ?>
+                            <span style="color:#9ca3af;font-size:0.9rem;">—</span>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </tbody>
+    </table>
 </div>
 
 <?php require_once '../../includes/footer.php'; ?>

@@ -38,11 +38,11 @@ $teacherRecords = array_filter($anecdotalRecords, function($record) use ($user) 
     return $record['reported_by'] == $user['id'];
 });
 ?>
-            <div class="page-header">
-                <div>
+            <div class="top-bar page-header">
+                <span>
                     <h1>Anecdotal Records</h1>
                     <p>Submit and manage student behavior reports.</p>
-                </div>
+                </span>
                 <button class="btn-new" onclick="openModal('reportModal')">+ New Report</button>
             </div>
 

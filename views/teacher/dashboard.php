@@ -12,17 +12,17 @@ $teacherClasses = $teacherData['classes'];
 $totalClasses = count($teacherClasses);
 ?>
             <div class="top-bar">
-            <h1>Welcome, <?php echo $user['name']; ?>!</h1>
+            <h1>Welcome, <span class="welcome-name"><?php echo $user['name']; ?></span>!</h1>
             <div class="user-info">
                 <!-- <div class="notification-icon">
                     🔔
                     <span class="notification-badge">2</span>
                     <a href="notification.php" class="notification-icon"></a>>
                 </div> -->
-                <a href="notification.php">
-                <div class="notification-icon">🔔</div>
-                <div class="notification-badge">2</div>
-                </a>>
+                <a href="notification.php" class="notification-icon" aria-label="Notifications">
+                    <span class="notif-emoji">🔔</span>
+                    <span class="notification-badge">2</span>
+                </a>
                 <div class="user-profile-dropdown">
                     <div class="profile-dropdown-toggle">
                         <div class="user-avatar"><?php echo substr($user['name'], 0, 2); ?></div>

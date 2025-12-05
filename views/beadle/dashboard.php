@@ -15,7 +15,7 @@ $todayAttendance = array_filter($beadleData['attendance'], function($record) {
 $pendingTasks = empty($todayAttendance) ? 1 : 0;
 ?>
             <div class="top-bar">
-                <h1>Welcome, <?php echo $user['name']; ?>!</h1>
+                <h1>Welcome, <span class="welcome-name"><?php echo $user['name']; ?></span>!</h1>
                 <div class="user-info">
                     <div class="notification-icon">
                         🔔

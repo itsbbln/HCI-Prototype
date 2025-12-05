@@ -13,7 +13,7 @@ $stats = [
 ];
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1>Admin Dashboard</h1>
     <p>System Overview & Management</p>
 </div>

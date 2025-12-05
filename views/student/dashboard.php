@@ -21,7 +21,7 @@ $presentCount = count(array_filter($attendanceRecords, function($record) use ($s
 $attendanceRate = count($attendanceRecords) > 0 ? round(($presentCount / count($attendanceRecords)) * 100) : 0;
 ?>
             <div class="top-bar">
-                <h1>Welcome, <?php echo $user['name']; ?>!</h1>
+                <h1>Welcome, <span class="welcome-name"><?php echo $user['name']; ?></span>!</h1>
                 <div class="user-info">
                     <div class="notification-icon">
                         🔔

@@ -20,7 +20,7 @@ if ($_POST && isset($_POST['update_profile'])) {
 }
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1>Admin Profile</h1>
 </div>
 

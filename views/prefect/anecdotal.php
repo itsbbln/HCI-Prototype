@@ -22,7 +22,7 @@ if ($_POST && isset($_POST['action'])) {
     $anecdotalRecords = $db->getAll('anecdotal');
 }
 ?>
-            <div class="page-header">
+            <div class="top-bar page-header">
                 <div>
                     <h1>Anecdotal Records</h1>
                     <p>Review and manage teacher-submitted behavior reports.</p>

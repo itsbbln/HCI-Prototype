@@ -108,7 +108,7 @@ if ($studentId) {
     });
 }
 ?>
-            <div class="page-header">
+            <div class="top-bar page-header">
                 <div>
                     <h1>Sanction Management</h1>
                     <p>Track and manage student sanctions and violations.</p>

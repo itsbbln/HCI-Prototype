@@ -25,7 +25,7 @@ foreach ($attendanceRecords as $record) {
 $totalAbsent = $totalStudents - $totalPresent;
 $overallAttendance = $totalStudents > 0 ? round(($totalPresent / $totalStudents) * 100) : 0;
 ?>
-            <div class="page-header">
+            <div class="top-bar page-header">
                 <h1>Reports</h1>
                 <p>View attendance reports and summaries.</p>
             </div>

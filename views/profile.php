@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
 }
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1>My Profile</h1>
     <p>View and manage your account information.</p>
 </div>

@@ -62,7 +62,7 @@ if ($selectedClass) {
 // Get recent attendance dates for the date dropdown
 $attendanceDates = array_unique(array_column($db->getAll('attendance'), 'date'));
 ?>
-            <div class="page-header">
+            <div class="top-bar page-header">
                 <h1>Attendance</h1>
                 <p>Track your student attendance.</p>
             </div>

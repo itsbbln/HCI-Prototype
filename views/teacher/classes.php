@@ -7,7 +7,7 @@ $db = new JsonDB();
 $teacherData = $auth->getUserData($user['id'], $user['role']);
 $teacherClasses = $teacherData['classes'];
 ?>
-            <div class="page-header">
+            <div class="top-bar page-header">
                 <h1>My Classes</h1>
                 <p>View and manage your assigned classes.</p>
             </div>

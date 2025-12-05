@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_account'])) {
 }
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1>Settings</h1>
     <p>Manage your account preferences and security settings.</p>
 </div>

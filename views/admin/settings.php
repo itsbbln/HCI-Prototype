@@ -24,7 +24,7 @@ if ($_POST && isset($_POST['change_password'])) {
 }
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1>Admin Settings</h1>
 </div>
 

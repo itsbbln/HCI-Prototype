@@ -60,7 +60,7 @@ $averageAttendance = !empty($studentAttendance) ?
     round(array_sum(array_column($studentAttendance, 'rate')) / count($studentAttendance)) : 0;
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1><?= htmlspecialchars($class['name']) ?> - <?= htmlspecialchars($class['section']) ?></h1>
     <p><?= htmlspecialchars($class['schedule']) ?> • <?= htmlspecialchars($class['room']) ?></p>
 </div>

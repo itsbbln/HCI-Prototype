@@ -27,7 +27,7 @@ $totalDays = count(array_filter($db->getAll('attendance'), function($record) use
 $absentDays = $totalDays - $presentDays;
 $attendanceRate = $totalDays > 0 ? round(($presentDays / $totalDays) * 100) : 0;
 ?>
-            <div class="page-header">
+            <div class="top-bar page-header">
                 <h1>My Attendance Record</h1>
                 <p>View your attendance history and statistics.</p>
             </div>
