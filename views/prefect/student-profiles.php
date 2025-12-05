@@ -34,7 +34,7 @@ foreach ($students as $student) {
     ];
 }
 ?>
-            <div class="page-header">
+            <div class="top-bar page-header">
                 <div>
                     <h1>Student Profiles</h1>
                     <p>View and manage student information and records.</p>

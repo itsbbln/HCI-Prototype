@@ -55,7 +55,7 @@ if ($_POST && isset($_POST['assign_teacher'])) {
 }
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1>Manage Classes</h1>
     <p>Create, edit, and assign teachers to classes</p>
 </div>

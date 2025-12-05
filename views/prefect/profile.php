@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
 ?>
 
 <div class="top-bar">
-    <h1>Welcome, <?php echo $user['name']; ?>!</h1>
+    <h1>Welcome, <span class="welcome-name"><?php echo $user['name']; ?></span>!</h1>
     <div class="user-info">
         <div class="notification-icon">
             🔔

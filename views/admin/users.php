@@ -30,7 +30,7 @@ if ($_POST && isset($_POST['create_user'])) {
 }
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1>All Users</h1>
     <p>Manage teachers, prefects, students, and beadles</p>
 </div>

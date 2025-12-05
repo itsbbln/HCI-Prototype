@@ -55,7 +55,7 @@ $unreadCount = count(array_filter($notifications, function($n) {
 }));
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <div>
         <h1>Notifications</h1>
         <p>Alerts related to your attendance, sanctions, and system updates.</p>

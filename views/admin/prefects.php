@@ -31,7 +31,7 @@ if ($_POST && isset($_POST['create_prefect'])) {
 $prefects = array_filter($db->getAll('users'), fn($u) => $u['role'] === 'prefect');
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1>Manage Prefects</h1>
     <p>Create and view prefect accounts</p>
 </div>

@@ -16,7 +16,7 @@ usort($notifications, fn($a, $b) => strtotime($b['created_at']) <=> strtotime($a
 $unread = count(array_filter($notifications, fn($n) => empty($n['is_read'])));
 ?>
 
-<div class="page-header">
+<div class="top-bar page-header">
     <h1>Notifications <?php if ($unread > 0) echo "<span style='color:#ef4444;'>($unread unread)</span>"; ?></h1>
 </div>
 

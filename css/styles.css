@@ -241,21 +241,91 @@ body {
     background: #f8fafc;
 }
 
-/* Top Bar */
 .top-bar {
-    background: white;
-    padding: 25px 40px;
-    border-bottom: 1px solid #e2e8f0;
+    background: linear-gradient(135deg, #2c55f0 0%, #1e40af 100%);
+    color: white;
+    padding: 20px 40px;
+    margin: 0px 0px 0 0px;
+    border-radius: 12px;
+    border-bottom: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 18px rgba(30, 64, 175, 0.12);
 }
 
 .top-bar h1 {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #1e293b;
+    color: rgb(255, 255, 255);
+}
+
+/* Make the username in the welcome header non-bold */
+.top-bar h1 .welcome-name {
+    font-weight: 400;
+}
+
+/* Ensure controls in the top bar use white text */
+.top-bar .user-info,
+.top-bar .user-info a,
+.top-bar .user-info p {
+    color: white;
+}
+
+/* Keep the profile dropdown menu text dark (it sits on a white background) */
+.top-bar .user-info .profile-dropdown-menu,
+.top-bar .user-info .profile-dropdown-menu * {
+    color: #111827;
+}
+
+/* Profile toggle hover: subtle white overlay to suit the gradient */
+.top-bar .profile-dropdown-toggle {
+    background: transparent;
+    color: white;
+}
+
+.top-bar .profile-dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+/* Role label in the top-bar (e.g., "Teacher") should be white on the gradient */
+.top-bar .profile-dropdown-toggle > div > div:last-child {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+/* Notification icon + badge styling for better contrast on the gradient */
+.top-bar .notification-icon {
+    position: relative;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: transform 0.15s ease, 0.15s ease;
+}
+
+.top-bar .notification-icon:hover {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,0.06);
+}
+
+.top-bar .notification-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    border: 2px solid rgba(255,255,255,0.9);
 }
 
 .user-info {
@@ -456,9 +526,75 @@ body {
     margin: 0 40px 20px;
 }
 
+/* When a page-header also has top-bar, prefer the top-bar gradient and tighter padding */
+.top-bar.page-header {
+    /* reuse top-bar gradient and sizing but remove extra top margin so it sits flush with content */
+    background: linear-gradient(135deg, #2c55f0 0%, #1e40af 100%);
+    color: white;
+    padding: 18px 40px;
+    margin: 0px 0px 20px 0px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(30, 64, 175, 0.08);
+    border: none;
+}
+
+.top-bar.page-header h1,
+.top-bar.page-header .section-title,
+.top-bar.page-header p {
+    color: rgba(255,255,255,0.95);
+}
+
+/* Ensure any white page-header backgrounds don't override the gradient when combined */
+.top-bar.page-header { background-image: linear-gradient(135deg, #2c55f0 0%, #1e40af 100%); }
+
 /* Recent Activity */
+
+/* Layout: ensure heading + subtitle stack on the left while action controls sit on the right */
+.top-bar.page-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-auto-rows: min-content;
+    gap: 12px 20px;
+    align-items: start;
+}
+
+.top-bar.page-header > h1 {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+}
+
+.top-bar.page-header > p {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Put any other immediate children (buttons, forms) on the right column and center them */
+.top-bar.page-header > :not(h1):not(p) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+}
+
+/* If the heading/subtitle are wrapped in a container div (as in Anecdotal/Notifications),
+   ensure that container sits in the left column and its text is left-aligned */
+.top-bar.page-header > div {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    justify-self: start;
+    align-self: start;
+}
+
+.top-bar.page-header > div h1,
+.top-bar.page-header > div p {
+    margin: 0;
+    text-align: left;
+}
 .recent-activity {
     background: white;
+    border-bottom: none;
     margin: 0 40px 30px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
@@ -498,20 +634,30 @@ body {
 }
 
 /* Tables */
+.recent-activity > .section-title {
+    margin: 0; /* remove indentation from the heading */
+    padding: 18px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Ensure the activity list content aligns with the header */
+.recent-activity .activity-list {
+    padding: 0 24px 20px;
+}
 .classes-container, .records-container, .attendance-sheet-container, .report-container {
     background: white;
-    margin: 0 40px 30px;
+    margin: 0px 0px 20px 0px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
     overflow: hidden;
 }
 
-.classes-table, .records-table, .attendance-table, .report-table {
+.classes-table, .records-table, .attendance-table, .report-table, .notification-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.classes-table th, .records-table th, .attendance-table th, .report-table th {
+.classes-table th, .records-table th, .attendance-table th, .report-table th, .notification-table th {
     background: #f8fafc;
     padding: 16px 20px;
     text-align: left;
@@ -521,19 +667,19 @@ body {
     font-size: 14px;
 }
 
-.classes-table td, .records-table td, .attendance-table td, .report-table td {
+.classes-table td, .records-table td, .attendance-table td, .report-table td, .notification-table td {
     padding: 16px 20px;
     border-bottom: 1px solid #e2e8f0;
     font-size: 14px;
 }
 
 .classes-table tr:last-child td, .records-table tr:last-child td,
-.attendance-table tr:last-child td, .report-table tr:last-child td {
+.attendance-table tr:last-child td, .report-table tr:last-child td, .notification-table tr:last-child td {
     border-bottom: none;
 }
 
 .classes-table tr:hover, .records-table tr:hover,
-.attendance-table tr:hover, .report-table tr:hover {
+.attendance-table tr:hover, .report-table tr:hover, .notification-table tr:hover {
     background: #f8fafc;
 }
 
@@ -559,6 +705,44 @@ body {
 .status-rejected {
     background: #fee2e2;
     color: #991b1b;
+}
+
+.status-read {
+    background: #ffffff;
+    color: #6b7280;
+}
+
+.status-unread {
+    background: #f9fafb;
+    color: #374151;
+}
+
+/* Notification Styling */
+.notification-container {
+    background: white;
+    margin: 0px 40px 20px 40px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.notification-type-badge {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    color: #374151;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.notification-row {
+    transition: background 0.2s ease;
+}
+
+.notification-row.status-unread {
+    background: #f9fafb;
+    font-weight: 500;
 }
 
 /* Filter Row */

@@ -70,26 +70,24 @@ usort($recentAttendance, function($a, $b) {
 $recentActivity = array_slice($recentAttendance, 0, 5);
 ?>
             <div class="top-bar">
-                <h1>Welcome back, <?php echo htmlspecialchars($user['name']); ?>!</h1>
-                <div class="user-info">
-                    <div class="notification-icon">
-                        🔔
-                        <?php 
-                        $notifications = $db->getAll('notifications');
-                        $unreadCount = count(array_filter($notifications, function($n) use ($user) {
-                            return $n['user_id'] == $user['id'] && empty($n['is_read']);
-                        }));
-                        if ($unreadCount > 0):
-                        ?>
-                        <span class="notification-badge"><?php echo $unreadCount; ?></span>
-                        <?php endif; ?>
-                    </div>
-                    <div class="user-profile-dropdown">
-                        <div class="profile-dropdown-toggle">
-                            <div class="user-avatar"><?php echo substr($user['name'], 0, 2); ?></div>
-                            <div>
-                                <div style="font-size: 14px; font-weight: 600;"><?php echo htmlspecialchars($user['name']); ?></div>
-                                <div style="font-size: 12px; color: #6e6e6e;">Faculty</div>
+            <h1>Welcome, <?php echo $user['name']; ?>!</h1>
+            <div class="user-info">
+                <!-- <div class="notification-icon">
+                    🔔
+                    <span class="notification-badge">2</span>
+                    <a href="notification.php" class="notification-icon"></a>>
+                </div> -->
+                <a href="notification.php">
+                <div class="notification-icon">🔔</div>
+                <div class="notification-badge">2</div>
+                </a>>
+                <div class="user-profile-dropdown">
+                    <div class="profile-dropdown-toggle">
+                        <div class="user-avatar"><?php echo substr($user['name'], 0, 2); ?></div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 600;"><?php echo $user['name']; ?></div>
+                            <div style="font-size: 12px; color: #6e6e6e;">
+                                <?php echo ucfirst($user['role']); ?>
                             </div>
                             <span class="dropdown-arrow">▼</span>
                         </div>
