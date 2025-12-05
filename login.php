@@ -36,7 +36,7 @@ if ($_POST) {
 <body>
     <div class="wrapper">
         <div class="left">
-            <h1>Discipline <br><span>starts with presence.</span></h1>
+            <h1>Dologon National High School <br><span>Student Mangement System</span></h1>
             <p>Track attendance, monitor growth, and build integrity.</p>
         </div>
 
