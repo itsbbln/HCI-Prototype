@@ -100,19 +100,15 @@ $attendanceRate = count($attendanceRecords) > 0 ? round(($presentCount / count($
             </div>
 
             <div class="quick-actions">
-                <a href="attendance.php" class="action-btn">
-                    <div class="action-btn-icon">✅</div>
-                    <div class="action-btn-text">View Attendance</div>
-                </a>
                 <a href="sanctions.php" class="action-btn">
                     <div class="action-btn-icon">⚖️</div>
                     <div class="action-btn-text">View Sanctions</div>
                 </a>
-                <a href="#" class="action-btn">
+                <a href="anecdotal.php" class="action-btn">
                     <div class="action-btn-icon">📋</div>
-                    <div class="action-btn-text">Class Schedule</div>
+                    <div class="action-btn-text">View Reports</div>
                 </a>
-                <a href="#" class="action-btn">
+                <a href="profile.php" class="action-btn">
                     <div class="action-btn-icon">👤</div>
                     <div class="action-btn-text">My Profile</div>
                 </a>
