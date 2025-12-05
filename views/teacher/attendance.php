@@ -51,16 +51,39 @@ if ($selectedClass && $selectedClass['teacher_id'] != $user['id']) {
 }
 
 // Get students for the selected class
+// Get students for the selected class
 $classStudents = [];
+$classAttendance = [];
+$absenceCounts = [];
+
 if ($selectedClass) {
     $allStudents = $db->getAll('students');
     $classStudents = array_filter($allStudents, function($student) use ($selectedClass) {
         return in_array($student['id'], $selectedClass['students']);
     });
+
+    // Get all attendance records for this class
+    $classAttendance = array_filter($db->getAll('attendance'), function($record) use ($selectedClass) {
+        return $record['class_id'] == $selectedClass['id'];
+    });
+
+    // Compute accumulated absences per student for this class
+    foreach ($classAttendance as $record) {
+        $present = $record['present_students'] ?? [];
+        foreach ($selectedClass['students'] as $studentId) {
+            if (!in_array($studentId, $present)) {
+                if (!isset($absenceCounts[$studentId])) {
+                    $absenceCounts[$studentId] = 0;
+                }
+                $absenceCounts[$studentId]++;
+            }
+        }
+    }
 }
 
-// Get recent attendance dates for the date dropdown
+// Get recent attendance dates for the date dropdown (optional, if you still use this)
 $attendanceDates = array_unique(array_column($db->getAll('attendance'), 'date'));
+
 ?>
             <div class="top-bar page-header">
                 <h1>Attendance</h1>
@@ -124,9 +147,11 @@ $attendanceDates = array_unique(array_column($db->getAll('attendance'), 'date'))
                                 <th>#</th>
                                 <th>Student name</th>
                                 <th>Student ID</th>
+                                <th>Absences</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <?php if (empty($classStudents)): ?>
                                 <tr>
@@ -139,15 +164,22 @@ $attendanceDates = array_unique(array_column($db->getAll('attendance'), 'date'))
                                 <tr>
                                     <td class="checkbox-cell">
                                         <input type="checkbox" class="student-checkbox" 
-                                               name="present_students[]" value="<?php echo $student['id']; ?>" checked>
+                                            name="present_students[]" value="<?php echo $student['id']; ?>" checked>
                                     </td>
                                     <td><?php echo $index + 1; ?></td>
                                     <td><?php echo $student['name']; ?></td>
                                     <td><?php echo $student['student_id']; ?></td>
                                     <td>
+                                        <?php
+                                            // Show accumulated absences for this student in this class
+                                            echo isset($absenceCounts[$student['id']]) ? $absenceCounts[$student['id']] : 0;
+                                        ?>
+                                    </td>
+                                    <td>
                                         <span class="status-text present-status">Present</span>
                                     </td>
                                 </tr>
+
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </tbody>
@@ -184,12 +216,10 @@ $attendanceDates = array_unique(array_column($db->getAll('attendance'), 'date'))
             <div class="recent-activity" style="margin-top: 30px;">
                 <h2 class="section-title">Recent Attendance Records</h2>
                 <?php
-                $classAttendance = array_filter($db->getAll('attendance'), function($record) use ($selectedClass) {
-                    return $record['class_id'] == $selectedClass['id'];
-                });
-                
+                // $classAttendance already computed above
                 $recentAttendance = array_slice(array_reverse($classAttendance), 0, 5);
                 ?>
+
                 
                 <?php if (empty($recentAttendance)): ?>
                     <p style="text-align: center; color: #6e6e6e; padding: 20px;">

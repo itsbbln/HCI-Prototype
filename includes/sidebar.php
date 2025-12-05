@@ -210,8 +210,8 @@ $navItems = [
 
     .nav-menu {
         list-style: none;
-        padding: 0;
-        margin: 0 15px 5px;
+        padding: 20x 0;
+        margin: 0;
         flex: 1;
         overflow-y: auto;
     }
